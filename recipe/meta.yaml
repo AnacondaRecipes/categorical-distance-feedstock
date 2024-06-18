@@ -36,8 +36,13 @@ test:
 about:
   home: https://github.com/datamade/categorical-distance
   summary: Compare two categorical variables
+  description: |
+    Compare two categorical variables
   license: MIT
   license_file: LICENSE
+  license_family: MIT
+  doc_url: https://github.com/dedupeio/categorical-distance
+  dev_url: https://github.com/dedupeio/categorical-distance
 
 extra:
   recipe-maintainers:
