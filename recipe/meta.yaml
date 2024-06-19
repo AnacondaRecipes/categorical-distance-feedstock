@@ -7,8 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ae5eaf72048cb4253f6b851f0594a001643574dffc014d03445f9c7c30543a3e
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: ae5eaf72048cb4253f6b851f0594a001643574dffc014d03445f9c7c30543a3e
+  - url: https://raw.githubusercontent.com/dedupeio/categorical-distance/master/tests/test_categorical.py
+    # NB There are no tags or releases in the repo so we are at risk
+    # of upstream changing this file under our feet.  That said, it
+    # hasn't changed since 2015.
+    sha256: be2791f731bf9d4f7909c3daa4ebb05ccdb777af3287b9e9a7dc8a7a958a7743
+    folder: tests
 
 build:
   skip: True  # [py<36]
@@ -26,12 +32,16 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   imports:
     - categorical
-  commands:
-    - pip check
   requires:
     - pip
+    - pytest
+  commands:
+    - pip check
+    - pytest -v tests
 
 about:
   home: https://github.com/datamade/categorical-distance
