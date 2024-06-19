@@ -44,7 +44,7 @@ test:
     - pytest -v tests
 
 about:
-  home: https://github.com/datamade/categorical-distance
+  home: https://github.com/dedupeio/categorical-distance
   summary: Compare two categorical variables
   description: |
     Compare two categorical variables
